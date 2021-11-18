@@ -1,0 +1,530 @@
+@import "./sassTools";
+
+.header {
+  @include flexContainer;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 0 0.8rem;
+  height: 48px;
+  background: rgba(31, 31, 31, 0.9);
+  backdrop-filter: blur(6px);
+  z-index: 4;
+  transition: height 0.3s ease-in-out, background 0.3s ease-in-out;
+  overflow: hidden;
+
+  &.showNav {
+    background: #000;
+    height: 100vh;
+
+    * {
+      transition: all 0.35s ease-in-out;
+    }
+
+    .hamburgMenu {
+      @include flexContainer;
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      animation: orbit 8s linear 0.2s infinite;
+    }
+
+    .line {
+      animation: switch 0.3s linear forwards 0.05s;
+      &:nth-of-type(1) {
+        transform: translateY(0.2rem);
+      }
+      &:nth-of-type(2) {
+        transform: translateY(-0.2rem);
+      }
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      color: $grayWhite;
+    }
+
+    .bag {
+      opacity: 0;
+    }
+
+    .headerNav {
+      top: 100px;
+    }
+
+    .cancelSearch {
+      opacity: 0.01;
+    }
+
+    .search {
+      transform: scale(1, 1);
+    }
+
+    &.searching {
+      * {
+        &:not(.navLink) {
+          transition: all 0.25s ease-in-out;
+        }
+      }
+      .logo,
+      .hamburgMenu {
+        opacity: 0;
+        top: -4.3rem;
+      }
+
+      .headerNav {
+        top: 68px;
+      }
+
+      .quickLinks {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: initial;
+      }
+
+      .navLinks {
+        transform: translateY(-35%);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .cancelSearch {
+        opacity: 1;
+        top: 16px;
+      }
+
+      .search {
+        left: 2%;
+        top: 16px;
+        width: 80.4%;
+      }
+    }
+  }
+
+  .headerContent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 980px;
+    color: #fff;
+    z-index: 5;
+
+    .hamburgMenu {
+      position: fixed;
+      top: 24px;
+      left: 24.5px;
+      transform: translate(-50%, -50%);
+      display: grid;
+      row-gap: 6px;
+      padding: 0.5rem;
+      z-index: 1;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+
+      @keyframes orbit {
+        0% {
+          transform: translate(-50%, -50%) rotate(0);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      .line {
+        display: block;
+        height: 1px;
+        width: 15px;
+        background: $grayWhite;
+        transition: transform 0.1s ease-in-out;
+        border: 1px solid transparent;
+
+        @keyframes switch {
+          50% {
+            width: 2px;
+            transform: rotate(90deg);
+          }
+          100% {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            transform: rotate(90deg);
+            background: transparent;
+            border: 1px solid $grayWhite;
+          }
+        }
+      }
+    }
+
+    .logo {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      padding: 0.5rem;
+      font-size: 1.3rem;
+      color: $grayWhite;
+      transform: scale(1, 1.025) translate(-50%, -54.5%);
+      z-index: 3;
+      transition: all 0.1s ease-in-out;
+
+      &:hover {
+        color: #555;
+      }
+    }
+
+    .magnifyGlass {
+      position: absolute;
+      right: 5.5%;
+      top: 46%;
+      transform: translateY(-50%);
+      font-weight: 350;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.2s ease-in-out;
+      cursor: pointer;
+
+      .magnify {
+        height: 10.8px;
+        width: 10.8px;
+        border: 1.4px solid $grayWhite;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 95%;
+          left: 80%;
+          height: 1.4px;
+          width: 5.5px;
+          background: $grayWhite;
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    .bag {
+      @include flexContainer;
+      position: fixed;
+      top: 24px;
+      right: -24.5px;
+      transform: translate(-50%, -50%);
+      height: 48px;
+      width: 48px;
+      transition: 0.2s ease-in-out;
+      cursor: pointer;
+
+      .square {
+        position: relative;
+        width: 15px;
+        height: 14px;
+        border-radius: 2.5px;
+        border: 1px solid $grayWhite;
+
+        &::after {
+          position: absolute;
+          top: -4.5px;
+          left: 2.7px;
+          content: "";
+          width: 5.5px;
+          height: 2.5px;
+          border-top-right-radius: 4px;
+          border-top-left-radius: 4px;
+          border: 1px solid $grayWhite;
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+  .headerNav {
+    @include flexContainer;
+    flex-direction: column;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100vw;
+    max-width: 830px;
+    transition: top 0.2s ease-in-out;
+    border-top: 1.3px solid $navLinkBorderGray;
+    overflow: hidden;
+
+    .quickLinks {
+      @include flexContainer;
+      position: relative;
+      justify-content: space-between;
+      width: 84%;
+      padding: 0.4rem 0;
+      flex-direction: column;
+      text-align: left;
+      color: $grayWhite;
+      transform: translateY(-4rem);
+      transition: 0.25s ease-in-out;
+      opacity: 0;
+      pointer-events: none;
+
+      .quickLink,
+      h5 {
+        width: 100%;
+        letter-spacing: 0.15px;
+      }
+
+      h5 {
+        font-weight: 100;
+        text-transform: uppercase;
+        color: #aaa;
+        padding: 0.6rem 0;
+        font-size: 0.75rem;
+      }
+
+      .quickLink {
+        color: #eee;
+        text-decoration: none;
+        width: 100%;
+        color: #eee;
+        font-size: 0.88rem;
+        font-weight: 350;
+        padding: 0.8rem 0;
+        padding-bottom: 0.85rem;
+        transition: 0s;
+
+        &:not(:nth-of-type(5)) {
+          border-bottom: 1.5px solid $navLinkBorderGray;
+        }
+
+        &:hover {
+          color: $quickLinkBlue;
+        }
+      }
+    }
+
+    .navLinks {
+      @include flexContainer;
+      justify-content: space-between;
+      width: 84%;
+      padding: 0.3rem 0;
+      flex-direction: column;
+      text-align: left;
+      color: $grayWhite;
+      transform: translateY(-59%);
+      transition: 0.25s ease-in-out;
+
+      .navLink {
+        width: 100%;
+        text-decoration: none;
+        color: $grayWhite;
+        font-size: 1.05rem;
+        font-weight: 350;
+        padding: 0.7rem 0;
+        transition: color 0s;
+        transition-delay: 0;
+        cursor: pointer;
+
+        &:hover {
+          color: #fff;
+        }
+
+        &:not(:nth-of-type(10)) {
+          border-bottom: 1.5px solid $navLinkBorderGray;
+        }
+      }
+    }
+  }
+
+  .search {
+    position: absolute;
+    top: 48px;
+    left: 2%;
+    width: 96%;
+    max-width: 584px;
+    padding: 0 1.9rem;
+    background: $searchBoxGray;
+    border-radius: 7.5px;
+    transform: scale(1, 0);
+    transform-origin: left;
+    transition: 0.2s ease-in-out;
+    color: $placeHolderGray;
+
+    .searchIcon {
+      position: absolute;
+      left: 0.5rem;
+      top: 46%;
+      transform: translateY(-50%);
+      font-weight: 350;
+
+      .magnify {
+        height: 10.8px;
+        width: 10.8px;
+        border: 1.4px solid #78787e;
+        border-radius: 50%;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 95%;
+          left: 80%;
+          height: 1.4px;
+          width: 5.5px;
+          background: #78787e;
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5rem 0;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: $grayWhite;
+      background: transparent;
+      border: none;
+
+      &::placeholder {
+        color: $placeHolderGray;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .cancelSearch {
+    position: absolute;
+    right: 0.6rem;
+    top: 65px;
+    font-size: 1.04rem;
+    font-weight: 300;
+    padding: 0.5rem;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    color: $quickLinkBlue;
+    opacity: 0;
+  }
+
+  //media breaks
+  @include responsive(smTablet) {
+    @include flexContainer;
+    height: 48px;
+    overflow: visible;
+    padding: 0;
+
+    .headerContent {
+      // display: none;
+      z-index: 1;
+      .hamburgMenu {
+        display: none;
+      }
+      .logo,
+      .bag {
+        position: absolute;
+        transform: translate(0, -50%);
+        top: 50%;
+        width: 30px;
+        height: 40px;
+      }
+
+      .logo {
+        @include flexContainer;
+        transform: translateY(-56%);
+        left: 4%;
+        font-size: 1.3rem;
+        color: $grayWhite;
+      }
+
+      .magnifyGlass {
+        opacity: 1;
+        cursor: pointer;
+      }
+
+      .bag {
+        right: 1%;
+      }
+    }
+    .headerNav {
+      width: 80vw;
+      height: 48px;
+      top: 0;
+      left: 50%;
+      padding: 0;
+      transform: translateX(-50%);
+      overflow: visible;
+      z-index: 3;
+
+      .navLinks,
+      .quickLinks {
+        opacity: 1;
+
+        .quickLink,
+        .navLink {
+          border: none !important;
+        }
+      }
+      .quickLinks {
+        position: absolute;
+        top: 8rem;
+        display: none;
+
+        .quickLink {
+          color: #000;
+        }
+      }
+      .navLinks {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        transform: translateY(0);
+        top: 50%;
+
+        .navLink {
+          width: auto;
+          font-size: 0.8rem;
+          text-align: center;
+        }
+      }
+    }
+    .search {
+      left: 50%;
+      top: 50%;
+      transform: translate(-10%, -50%);
+      opacity: 0;
+      cursor: pointer;
+      display: none;
+
+      .searchIcon {
+        .magnify {
+          border-color: $grayWhite;
+
+          &::after {
+            background: $grayWhite;
+          }
+        }
+      }
+    }
+  }
+
+  // @media screen and (min-width: 834px) {
+  //   &.showNav {
+  //     @include flexContainer;
+  //     height: 48px;
+  //     .headerNav {
+  //       top: 0;
+
+  //       .quickLinks {
+  //         position: absolute;
+  //       }
+  //       .navLinks {
+  //         padding: 0;
+  //         flex-direction: row;
+  //         justify-content: space-evenly;
+  //         transform: translateY(0);
+  //         .navLink {
+  //           border-bottom: 1px solid transparent !important;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   .hamburgMenu{
+  //     display: none;
+  //   }
+  // }
+}

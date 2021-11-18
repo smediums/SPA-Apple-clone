@@ -1,0 +1,19 @@
+.ribbon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e34140;
+  text-align: center;
+  width: 100vw;
+
+  p {
+    font-size: 0.83rem;
+    color: #fff;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+    width: 215px;
+    padding: 0.63rem 0;
+    font-weight: 300;
+  }
+}

@@ -1,0 +1,29 @@
+// Variables
+$grayWhite: rgb(211, 211, 211);
+$searchBoxGray: #1d1d1f;
+$navLinkBorderGray: #39393d;
+$placeHolderGray: #6e6e73;
+$quickLinkBlue: #2997ff;
+$ctaBlue: #1266CC;
+
+// Mixins
+@mixin flexContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin absoluteElm($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+//Media Queries
+@mixin responsive($break) {
+  @if ($break == tablet) {
+    @media screen and (min-width: 834px) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+export { default as Header } from "./header/Header";
+export { default as ProductSelections } from "./pages/productSelections/ProdSelections";
+export { default as Footer } from "./footer/Footer";
+export { default as Mac } from "./pages/Mac";
+export { default as Accessories } from "./pages/Accessories";
+export { default as Airpods } from "./pages/Airpods";
+export { default as Ipad } from "./pages/Ipad";
+export { default as Iphone } from "./pages/Iphone";
+export { default as OnlyApple } from "./pages/OnlyApple";
+export { default as Store } from "./pages/Store";
+export { default as Support } from "./pages/Support";
+export { default as TvAndHome } from "./pages/TvAndHome";
+export { default as Watch } from "./pages/Watch";
+export { default as Home } from "./home/Home";
+export { default as Pages } from "./pages/Pages";
