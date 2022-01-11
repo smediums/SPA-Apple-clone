@@ -1,5 +1,5 @@
 import React from "react";
-import Ribbon from "./ribbon/Ribbon";
+import Ribbon from "../ribbon/Ribbon";
 
 function Accessories({ ribbonText }) {
   return (

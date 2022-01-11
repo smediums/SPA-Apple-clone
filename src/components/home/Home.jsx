@@ -5,10 +5,13 @@ import Ribbon from "../pages/ribbon/Ribbon";
 import AirpodCir from "./imgs/airpods.png";
 import MacBookCir from "./imgs/macbook.png";
 import iPhone13 from "./imgs/iphone13.png";
+import Airpods from "./imgs/airpodLg.png";
+import GreenWatch from "./imgs/greenWatch.png";
 import iPhonePink from "./imgs/pinkIphone13.png";
 import iPhoneCir from "./imgs/iphones.png";
 import Shrink from "./imgs/shrink.png";
 import ItemContent from "./ItemContent";
+import HomeFooter from "./HomeFooter";
 import Footer from "../footer/Footer";
 
 function Home({ ribbonText }) {
@@ -102,7 +105,7 @@ function Home({ ribbonText }) {
             />
 
             <ItemContent
-              srcImg="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F616daeae810dc91cad9c8fd8%2FIMG-1029%2F960x0.jpg%3Ffit%3Dscale"
+              srcImg={Airpods}
               imgAlt="AirPods"
               ctaText="Learn more"
               cta2="inline-block"
@@ -120,7 +123,7 @@ function Home({ ribbonText }) {
               heading="HomePod mini"
             />
             <ItemContent
-              srcImg="https://www.inside-digital.de/img/apple-watch-series-7-gruen.jpg"
+              srcImg={GreenWatch}
               imgAlt="Apple watch"
               ctaText="Learn more"
               cta2="inline-block"
@@ -147,7 +150,7 @@ function Home({ ribbonText }) {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer section={<HomeFooter />} />
     </div>
   );
 }

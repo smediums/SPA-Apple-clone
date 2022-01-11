@@ -3,6 +3,7 @@ import "./App.scss";
 import {
   Home,
   Pages,
+  StoreRibbon,
   Mac,
   Accessories,
   Airpods,
@@ -26,7 +27,11 @@ function App() {
           }
         />
         <Route path="/pages/*" element={<Pages />}>
-          <Route path="store" element={<Store />} />
+          <Route path="store" element={<Store ribbonText={<StoreRibbon
+            slide1="Shop early for best selection of holiday favorites. Shop now"
+            slide2="Get your holiday gifts on time. See when to order"
+            slide3="sumthin"
+          />} />} />
           <Route
             path="mac"
             element={

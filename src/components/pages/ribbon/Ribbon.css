@@ -1,0 +1,33 @@
+.ribbon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #e34140;
+  text-align: center;
+  width: 100vw;
+}
+
+.ribbon div {
+  font-size: 1rem;
+  color: #fff;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  word-spacing: 1.5px;
+  width: 260px;
+  padding: 0.8rem 0;
+  font-weight: 300;
+}
+
+@media screen and (min-width: 834px) {
+  .ribbon div {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+/*# sourceMappingURL=Ribbon.css.map */

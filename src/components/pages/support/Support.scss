@@ -1,0 +1,52 @@
+@import "./sassTools";
+
+.support {
+  padding-bottom: 48px;
+  .banner {
+    height: 387px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: -1;
+    top: -56px;
+
+    .tabPlusHeading {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: tra;
+    }
+    img {
+      height: 100%;
+    }
+
+    @include responsive(w865) {
+      height: 561px;
+    }
+  }
+
+  .mobileHeading {
+    font-weight: 400;
+    font-size: 2.2rem;
+    text-align: center;
+    transform: translateY(-15px);
+  }
+
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    place-content: center;
+    row-gap: 4rem;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(187, 187, 187, 0.651);
+
+    .outline {
+      justify-self: center;
+
+      img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+}

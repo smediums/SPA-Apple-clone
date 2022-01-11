@@ -21,8 +21,8 @@ $ctaBlue: #1266CC;
 
 //Media Queries
 @mixin responsive($break) {
-  @if ($break == tablet) {
-    @media screen and (min-width: 834px) {
+  @if ($break == finalBreak) {
+    @media screen and (min-width: 980px) {
       @content;
     }
   }

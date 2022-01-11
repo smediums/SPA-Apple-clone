@@ -19,13 +19,21 @@ function ItemContent({
   return (
     <div className="theContent">
       <div className="banner">
+
         <h2>{heading}</h2>
+
         <p className="phrase">{phrase}</p>
+
         <div className="ctas">
+
           <Link className="linkTo" to="/">
+
             {ctaText}
+
             <FontAwesomeIcon icon={faChevronRight} id="angleRight" style={ctaDisplay} />
+
           </Link>
+
           <Link className="linkTo" to="/" style={ctaDisplay}>
             {cta2Text}
             <FontAwesomeIcon icon={faChevronRight} id="angleRight" />

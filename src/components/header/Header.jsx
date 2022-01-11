@@ -1,5 +1,4 @@
 import { faApple } from "@fortawesome/free-brands-svg-icons";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
@@ -9,7 +8,6 @@ import "./Header.scss";
 function Header({ pos, homeHeader }) {
   const [showNav, setShowNav] = useState(false);
   const [searching, setSearching] = useState(false);
-  const [headerState, setHeaderState] = useState(homeHeader);
 
   const fixed = useFixedPos(pos);
 
@@ -69,61 +67,61 @@ function Header({ pos, homeHeader }) {
         <ul className="navLinks">
           <NavLink
             className="navLink"
-            to={`${homeHeader == "current" ? "" : homeHeader}store`}
+            to={`${homeHeader === "current" ? "" : homeHeader}store`}
           >
             <span>Store</span>
           </NavLink>
           <NavLink
             className="navLink"
-            to={`${homeHeader == "current" ? "" : homeHeader}mac`}
+            to={`${homeHeader === "current" ? "" : homeHeader}mac`}
           >
             <span>Mac</span>
           </NavLink>
           <NavLink
             className="navLink"
-            to={`${homeHeader == "current" ? "" : homeHeader}iPad`}
+            to={`${homeHeader === "current" ? "" : homeHeader}iPad`}
           >
             <span>iPad</span>
           </NavLink>
           <NavLink
             className="navLink"
-            to={`${homeHeader == "current" ? "" : homeHeader}iPhone`}
+            to={`${homeHeader === "current" ? "" : homeHeader}iPhone`}
           >
             <span>iPhone</span>
           </NavLink>
           <NavLink
             className="navLink"
-            to={`${homeHeader == "current" ? "" : homeHeader}watch`}
+            to={`${homeHeader === "current" ? "" : homeHeader}watch`}
           >
             <span>Watch</span>
           </NavLink>
           <NavLink
             className="navLink"
-            to={`${homeHeader == "current" ? "" : homeHeader}airpods`}
+            to={`${homeHeader === "current" ? "" : homeHeader}airpods`}
           >
             <span>AirPods</span>
           </NavLink>
           <NavLink
             className="navLink"
-            to={`${homeHeader == "current" ? "" : homeHeader}tvAndHome`}
+            to={`${homeHeader === "current" ? "" : homeHeader}tvAndHome`}
           >
             <span>TV & Home</span>
           </NavLink>
           <NavLink
             className="navLink"
-            to={`${homeHeader == "current" ? "" : homeHeader}onlyApple`}
+            to={`${homeHeader === "current" ? "" : homeHeader}onlyApple`}
           >
             <span>Only on Apple</span>
           </NavLink>
           <NavLink
             className="navLink"
-            to={`${homeHeader == "current" ? "" : homeHeader}accessories`}
+            to={`${homeHeader === "current" ? "" : homeHeader}accessories`}
           >
             <span>Accessories</span>
           </NavLink>
           <NavLink
             className="navLink"
-            to={`${homeHeader == "current" ? "" : homeHeader}support`}
+            to={`${homeHeader === "current" ? "" : homeHeader}support`}
           >
             <span>Support</span>
           </NavLink>

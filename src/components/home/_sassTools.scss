@@ -4,7 +4,7 @@ $searchBoxGray: #1d1d1f;
 $navLinkBorderGray: #39393d;
 $placeHolderGray: #6e6e73;
 $quickLinkBlue: #2997ff;
-$ctaBlue: #1266CC;
+$ctaBlue: #1266cc;
 
 // Mixins
 @mixin flexContainer {
@@ -22,7 +22,7 @@ $ctaBlue: #1266CC;
 //Media Queries
 @mixin responsive($break) {
   @if ($break == tablet) {
-    @media screen and (min-width: 834px) {
+    @media screen and (min-width: 864px) {
       @content;
     }
   }
@@ -30,7 +30,7 @@ $ctaBlue: #1266CC;
 
 //Animations
 @keyframes rotate {
-  100%{
-    transform: rotate(0);
+  100% {
+    transform: rotate(0) translate(0.4px, 0.4rem);
   }
 }

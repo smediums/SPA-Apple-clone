@@ -37,6 +37,10 @@
           }
         }
       }
+
+      @include responsive(finalBreak) {
+        font-size: 0.9rem;
+      }
     }
 
     //Footer nav
@@ -118,18 +122,20 @@
       }
 
       //Media Query
-      @include responsive(tablet) {
+      @include responsive(finalBreak) {
         display: grid;
-        column-gap: 0.5rem;
-        row-gap: 0.64rem;
+        column-gap: 0.7rem;
+        row-gap: 1rem;
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(auto, 250px);
+        padding: 1.2rem 0;
+        font-weight: 400;
 
         .footerLinks {
           height: auto;
           align-self: start;
-          // padding-bottom: 0;
           border: none;
+          font-size: 0.9rem;
 
           &:nth-of-type(1) {
             grid-column: 1/2;
@@ -173,6 +179,8 @@
 
           .summary {
             pointer-events: none;
+            font-weight: 400;
+            font-size: 0.9rem;
             color: #000;
 
             &.Account {
@@ -193,6 +201,7 @@
               padding: 7.3px 0;
               transform: translateY(0);
               opacity: 1;
+              color: #333;
 
               &:nth-of-type(1) {
                 padding-top: 0;
@@ -205,7 +214,7 @@
 
     //Customer care and legal stuff
     .shopOpts {
-      padding-right: 7.27rem;
+      padding-right: 7rem;
       margin-bottom: 1rem;
 
       span {
@@ -215,6 +224,12 @@
         &:hover {
           text-decoration: underline;
         }
+      }
+
+      @include responsive(finalBreak) {
+        font-size: 0.9rem;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 0.7rem;
       }
     }
 
@@ -243,7 +258,6 @@
       display: flex;
 
       .portal {
-        font-size: 0.8rem;
         padding-right: 0.5rem;
 
         &:not(:nth-of-type(5)) {
@@ -252,5 +266,29 @@
         }
       }
     }
+
+    .country,
+    .portal,
+    .companyInsight,
+    .copyright {
+      @include responsive(finalBreak) {
+        font-size: 0.9rem;
+
+        &.country {
+          position: absolute;
+          right: 0;
+          transform: translateX(25%
+          );
+        }
+
+        &.copyright{
+          margin-bottom: 0.7rem;
+        }
+      }
+    }
+  }
+
+  @include responsive(finalBreak) {
+    padding: 1.05rem 1.65rem 2rem;
   }
 }

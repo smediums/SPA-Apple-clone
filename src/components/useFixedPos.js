@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 const useFixedPos = (pos) => {
-    const [fixed, setFixed] = useState(pos)
+    const [fixed] = useState(pos)
 
     const position = {
         position: `${fixed}`,

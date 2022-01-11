@@ -1,15 +1,22 @@
-import React from "react";
-import { Outlet } from "react-router";
+import React, { useRef } from "react";
+import "./Pages.scss";
+import { Outlet, useLocation } from "react-router";
 import { Footer, Header } from "..";
+import PagesFooter from "./PagesFooter";
 import ProdSelections from "./productSelections/ProdSelections";
 
+
 function Pages() {
+  const pageSect = useRef(null);
+  const url = useLocation().pathname.split("/");
+  const urlPath = url[url.length - 1];
+
+
   return (
-    <div>
+    <div ref={pageSect} className="pages">
       <Header homeHeader="current" />
-      <ProdSelections />
       <Outlet />
-      <Footer />
+      <Footer section={<PagesFooter sectionIndicator={urlPath} />} />
     </div>
   );
 }

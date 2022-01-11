@@ -4,7 +4,7 @@ import "./Ribbon.scss";
 function Ribbon({ text }) {
   return (
     <article className="ribbon">
-      <p>{text}</p>
+      <div>{text}</div>
     </article>
   );
 }

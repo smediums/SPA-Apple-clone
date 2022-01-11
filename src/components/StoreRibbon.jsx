@@ -2,7 +2,7 @@ import React from 'react'
 
 function StoreRibbon({ slide1, slide2, slide3 }) {
     return (
-        <div>
+        <div className="storeRibbon">
             <div className="slider">
                 <div className="slide">{slide1}</div>
                 <div className="slide">{slide2}</div>
